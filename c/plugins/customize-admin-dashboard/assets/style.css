@@ -1,0 +1,55 @@
+
+@font-face {
+    font-family: 'PTSans';
+    src: url('PTSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Overpass-Medium';
+    src: url('Overpass-Medium.ttf');
+}
+@font-face {
+    font-family: 'Kohsantepheap';
+    src: url('KohSantepheap-Regular.ttf');
+}
+
+.acf-field.acf-field-text.acf-field-6384b82d4517b ,
+#wp-admin-bar-wp-logo .ab-item ,
+#wp-admin-bar-updates ,
+#wp-admin-bar-comments ,
+#wp-admin-bar-new-content ,
+#contextual-help-link-wrap ,
+#language-switcher ,
+#qtranxs-meta-box-lsb ,
+#viewer-data ,
+#footer-thankyou ,
+.acf-column-2 .acf-box ,
+.welcome-panel ,
+#dashboard-widgets-wrap ,
+.updated ,
+.notice.notice-info.qtranxs-notice-ajax.notice.is-dismissible {
+    display: none !important;
+}
+
+.wp-admin {
+    font-family: 'Overpass-Medium', 'Kohsantepheap';
+}
+
+#wpcontent, #wpfooter {
+    margin-left: 240px;
+}
+#adminmenu, 
+#adminmenu .wp-submenu, 
+#adminmenuback, 
+#adminmenuwrap {
+    width: 240px;
+}
+#adminmenu .wp-submenu {
+    left: 240px;
+}
+
+.acf-field-message .acf-input p {
+    margin: 0px;
+    font-weight: bold;
+    color: red !important;
+}

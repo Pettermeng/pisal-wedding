@@ -1,0 +1,457 @@
+
+@font-face {
+  font-family: 'Agbalumo';
+  src: url('../fonts/Agbalumo-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Great Vibes';
+  src: url('../fonts/GreatVibes-Regular.ttf');
+}
+
+:root {
+  --black       : #000000f8;
+  --white       : #ffffff;
+  --red         : #ff0000;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+/* font family */
+.section-04 .map,
+.section-06 .thumbnail .block-text h1,
+.section-05 .thumbnail .block-text h1,
+.section-05 .thumbnail .block-text p,
+.section-04 .thumbnail .block-text h1,
+.section-03 .thumbnail .block-text h1,
+.section-02 .thumbnail .block-text h1,
+.section-01 .thumbnail .block-text h1,
+.splashscreen .block-text .bottom ,
+.splashscreen .block-text .top h2 {
+  font-family: 'Agbalumo';
+}
+.splashscreen .block-text .center h1 {
+  font-family: 'Great Vibes', cursive;
+} 
+
+/* Text Shadow */
+/* .t-shadow {
+  text-shadow: 4px 4px 5px grey;
+} */
+
+/* Flower */
+@keyframes  animate-flower {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(2deg);
+  }
+}
+.flower-left {
+  position: fixed;
+  top: 13rem;
+  left: -6rem;
+  background: url(../images/flower01.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  height: 32rem;
+  width: 32rem;
+  rotate: 41deg;
+  animation: animate-flower 2s alternate infinite;
+}
+.flower-right {
+  position: fixed;
+  top: 13rem;
+  right: -15rem;
+  background: url(../images/flower02.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  height: 32rem;
+  width: 32rem;
+  rotate: -22deg;
+  animation: animate-flower 2s alternate infinite;
+}
+
+/* splashscreen */
+.splashscreen .bg-gradient {
+  top: 0;
+  bottom: 0;
+  left: 0;    
+  right: 0;
+  position: absolute;
+  /* background-color: var(--black-light); */
+}
+.splashscreen .block-text {
+  height: 100%;
+  gap: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.splashscreen .block-text .top h2 {
+  color: var(--red);
+}
+.splashscreen .block-text .center h1 {
+  font-size: 9rem;
+  color: var(--white);
+}
+.splashscreen .bottom {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.splashscreen .bottom .block-date {
+  color: var(--white);
+  gap: 1rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.splashscreen .bottom button {
+  border: transparent;
+  outline: none;
+  border-radius: .5rem 3rem;
+  padding: .9rem 3rem;
+  color: var(--black);
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+.splashscreen .bottom button:hover {
+  color: var(--white);
+  background-color: var(--red);
+  transition: all .3s ease-in-out;
+}
+
+/* Section 01 */
+.section-06 .main-bg,
+.section-05 .main-bg,
+.section-04 .main-bg,
+.section-03 .main-bg,
+.section-02 .main-bg,
+.section-01 .main-bg {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.section-06 .thumbnail {
+  margin-bottom: 5rem;
+}
+.section-06 .thumbnail,
+.section-05 .thumbnail,
+.section-04 .thumbnail,
+.section-03 .thumbnail,
+.section-02 .thumbnail,
+.section-01 .thumbnail {
+  margin-top: 5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 840px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.863); */
+}
+.section-01 .thumbnail .block-text {
+  width: 350px;
+}
+.section-01 .thumbnail .block-text .bottom,
+.section-01 .thumbnail .block-text .center,
+.section-01 .thumbnail .block-text .top {
+  font-family: 'Great Vibes' !important;
+}
+.section-01 .thumbnail .block-text h1 {
+  font-size: 5rem;
+}
+.section-01 .thumbnail .block-text .top {
+  text-align: left;
+}
+.section-01 .thumbnail .block-text .center {
+  text-align: center;
+}
+.section-01 .thumbnail .block-text .bottom {
+  text-align: right;
+}
+
+/* Section 02 */
+.section-02 .thumbnail .block-text {
+  padding: 10rem;
+  text-align: center;
+}
+.section-02 .thumbnail .block-text h1 span {
+  color: var(--red);
+  font-size: 3.4rem;
+  font-family: 'Great Vibes' !important;
+}
+
+/* Section 03 */
+.section-03 .thumbnail .block-text {
+  padding: 7rem;
+  text-align: center;
+}
+
+/* Section 04 */
+.section-04 .thumbnail .block-text {
+  padding: 5rem;
+  text-align: center;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+}
+.section-04 .map {
+  padding: 1rem 2rem;
+  color: var(--white);
+  border-radius: .5rem 3rem;
+  text-decoration: none;
+  background-color: var(--black);
+  transition: all .3s ease-in-out;
+}
+.section-04 .map:hover {
+  transition: all .3s ease-in-out;
+  background-color: var(--red);
+}
+
+/* Section 05 */
+.section-05 .thumbnail .block-text {
+  padding: 7rem;
+  text-align: center;
+  display: flex;
+  gap: 2rem;  
+  flex-direction: column;
+}
+.section-05 .thumbnail .block-text p {
+  text-transform: uppercase;
+}
+
+/* Section 06 */
+.section-06 .thumbnail .block-text {
+  padding: 7rem;
+  text-align: center;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+body {
+  position: relative;
+}
+/* scroll top */
+.block-absolute {
+  gap: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  z-index: 999; 
+  border-radius: 1rem;
+  padding: 1rem .5rem;
+
+  right: 1rem;
+  bottom: 1rem;
+  position: fixed;
+  background-color: var(--white);
+}
+.go-home div,
+.scroll-top div {
+  z-index: 999; 
+  cursor: pointer;
+
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.scroll-top div {
+  background-image: url('../images/arrow-top.png');
+}
+.go-home div {
+  background-image: url('../images/home.png');
+}
+
+.dt {
+  display: block;
+}
+.mb {
+  display: none;
+}
+
+/* laptop 1400 */
+@media (min-width: 1024.9px) and (max-width: 1300px) {
+  .section-06 .thumbnail, 
+  .section-05 .thumbnail, 
+  .section-04 .thumbnail, 
+  .section-03 .thumbnail, 
+  .section-02 .thumbnail, 
+  .section-01 .thumbnail {
+    width: 520px;
+    height: 730px;
+  }
+}
+
+/* ipad pro */
+@media (min-width: 769.9px) and (max-width: 1024.9px) {
+  .splashscreen .block-text .top h2 {
+      font-size: 3.5rem;
+  }
+  .splashscreen .block-text .center h1 {
+      font-size: 9rem;
+  }
+  .splashscreen .bottom button {
+      font-size: 1.5rem;
+      padding: 1.5rem 5rem;
+  }
+  .splashscreen .bottom .block-date {
+      font-size: 2.4rem;
+  }
+}
+
+/* ipad */
+@media (min-width: 576.9px) and (max-width: 769px) {
+  .section-06 .thumbnail, 
+  .section-05 .thumbnail, 
+  .section-04 .thumbnail, 
+  .section-03 .thumbnail, 
+  .section-02 .thumbnail, 
+  .section-01 .thumbnail {
+      width: 100%;
+      height: 1045px;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+  }
+  .splashscreen .block-text .top h2 {
+      font-size: 3.5rem;
+  }
+  .flower-left {
+    top: 20rem;
+    left: -7.5rem;
+    height: 26rem;
+    width: 26rem;
+  }
+  .flower-right {
+    top: 17rem;
+    right: -18rem;
+    height: 25rem;
+    width: 28rem;
+  }
+  HTML, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  } 
+}
+/* mobile */
+@media (max-width: 576px) {
+  /* scroll top */
+  .scroll-top {
+      bottom: 1rem;
+      right: 1rem;
+  }
+  .scroll-top img {
+      width: 3.5rem;
+  }
+  .dt {
+      display: none;
+  }
+  .mb {
+      font-size: 6rem;
+      text-align: center;
+      display: block;
+  }
+  .splashscreen .block-text .center h1.mb {
+      font-size: 6rem;
+  }
+  .splashscreen .block-text {
+      gap: 3rem;
+  }
+  .splashscreen .block-text .top h2 {
+      font-size: 2rem;
+  }
+  .splashscreen .bottom .block-date {
+      gap: 0px;
+  }
+  .section-06 .thumbnail, 
+  .section-05 .thumbnail, 
+  .section-04 .thumbnail, 
+  .section-03 .thumbnail, 
+  .section-02 .thumbnail, 
+  .section-01 .thumbnail {
+      width: 100%;
+      height: 580px;
+      margin-top: 1rem;
+      margin-bottom: 3rem;
+      background-size: cover;
+  }
+  .section-01 .thumbnail .block-text h1 {
+      font-size: 3.5rem;
+  }
+  .section-01 .thumbnail .block-text {
+      width: 17rem;
+  }
+
+  .section-06 .thumbnail .block-text,
+  .section-05 .thumbnail .block-text,
+  .section-03 .thumbnail .block-text,
+  .section-02 .thumbnail .block-text {
+      padding: 1rem;
+  }
+  .mb-5 {
+      margin-bottom: 0rem !important;
+  }
+  .section-05 .thumbnail .block-text {
+      gap: 1rem;
+  }
+  .section-05 .row img {
+      width: 4rem;
+  }
+
+  .flower-left {
+    top: 20rem;
+    left: -5.5rem;
+    height: 14rem;
+    width: 18rem;
+  }
+  .flower-right {
+    top: 17rem;
+    right: -15rem;
+    height: 11rem;
+    width: 20rem;
+  }
+  .bg {
+    background-size: cover !important;
+  }
+
+  HTML, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  } 
+}
