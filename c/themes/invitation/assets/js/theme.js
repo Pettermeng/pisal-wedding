@@ -10,8 +10,12 @@ $('document').ready(function() {
 
         $('.loading-screen').fadeOut(parseInt(loadingScreen));
         $('.block-item').fadeOut(350);
+        $('.second-load').fadeIn(parseInt(loadingScreen));
 
-        $('.second-load').fadeIn(1000);
+        setTimeout(function(){
+            $('.component-menu').addClass('show')
+        }, parseInt(loadingScreen) + 1000);
+        
     });
 
 
@@ -27,9 +31,12 @@ $('document').ready(function() {
         $('.content-qr').slideToggle(700);
     })
 
-    $('.menu a').click(function(){
+    $('.menu a').click(function() {
         $('.menu a').removeClass('border-top');
         $(this).addClass('border-top');
+        
+        $('.menu a').removeClass('current');
+        $(this).addClass('current');
     });
 
 

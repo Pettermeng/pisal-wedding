@@ -46,3 +46,39 @@ add_action( 'after_setup_theme', 'theme_setup');
 // }
 // add_action( 'init', 'news_pt' );
 
+function wishing_message()
+{
+	$labels = array(
+		'name' => _x('Wising', 'Wising'), // Page Title
+		'singular_name' => _x('Wising', 'Wising'),
+		'add_new' => _x('Add New', 'Wising'), // Button 'Add New' Name
+		'add_new_item' => __('Create Wising'), // Page Create Title
+		'edit_item' => __('Edit Wising'), // Page Edit Title
+		'new_item' => __('Create Wising'), 
+		'all_items' => __('All Wising'), // Menu
+		'view_item' => __('View Wising'),
+		'search_items' => __('Search'), // Button Search
+		'not_found' =>  __('No Data found'), // Label Not Found Data in publish
+		'not_found_in_trash' => __('No Data found in Trash'),  // Label Not Found Data in trush
+		'parent_item_colon' => '',
+		'menu_name' => __('Wising') // Menu Name
+	);
+	
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true, 
+		'show_in_menu' => true, 
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'has_archive' => true, 
+		'hierarchical' => false,
+		'menu_position' => 80,
+		'menu_icon' => '',
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', )
+	); 
+	register_post_type('wishing', $args);
+}
+add_action( 'init', 'wishing_message' );
