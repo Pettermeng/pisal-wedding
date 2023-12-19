@@ -22,7 +22,7 @@ $DB_NAME	=	[
 	"production"	=>	"",
 	"staging"		=>	"",
 	// "development"	=>	"wedding",
-	"development"	=>	"online_invitation",
+	"development"	=>	"wedding",
 ];
 
 $DB_USER	=	[

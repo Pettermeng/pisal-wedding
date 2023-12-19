@@ -203,14 +203,12 @@
                 <!-- Event -->
                 <section id="event" class="event second-load">
                     <div class="row">
-<<<<<<< HEAD
                         <div class="col-12">
                             <h2 class="title"><?php echo $w_program['program_title']; ?></h2>
                             <div class="description"><?php echo $w_program['program_description']; ?></div>
                             <h2 class="title-en"><?php echo $w_program['program_title_en']; ?></h2>
                             <div class="description"><?php echo $w_program['program_description_en']; ?></div>
                         </div>
-=======
                         <!-- <div class="col-12"> -->
                             <h2 class="title">សិរីមង្គលអាពាហ៍ពិពាហ៍</h2>
                             <div class="description">
@@ -221,7 +219,6 @@
                                 <?php echo get_field('event_description_en', 'option') ?>
                             </div>
                         <!-- </div> -->
->>>>>>> 4efa1e4e4ebac1dd6686f4b05162a3810a286859
                     </div>
                 </section>
 
