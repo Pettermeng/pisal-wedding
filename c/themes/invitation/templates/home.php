@@ -58,9 +58,6 @@
                                 </div>
                                 <div class="bottom">
                                     <?php echo get_field('splash_screen_description', 'option'); ?>
-                                    <!-- <p>ថ្ងៃព្រហស្បតិ៍ ទី២៥ ខែមករា ឆ្នាំ២០២៤</p>
-                                    <p>វេលាម៉ោង ០៥:០០ល្ងាច</p>
-                                    <p>នៅ មជ្ឈមណ្ឌលសន្និបាត និងពិព័រណ៍អន្តរជាតិជ្រោយចង្វារ ( OCIC អគារ A )</p> -->
                                 </div>
                             </div>
                         </div>
@@ -94,31 +91,60 @@
                         <div class="col-12">
                             <div class="top">
                                 <?php
-                                    $q_config['language'] = 'km';
-                                    $g_parent_a = get_field('wedding_parents_a', 'option');
-                                    $g_parent_b = get_field('wedding_parents_b', 'option');
-                                    $g_bride = get_field('g_wedding_bride', 'option');
-                                    $g_groom = get_field('g_wedding_groom', 'option');
+                                    $w_program = get_field('g_wedding_program', 'option'); // Wedding Program
+                                    $g_wedding = get_field('g_wedding', 'option'); // The Wedding
+
+                                    if( have_rows('g_wedding', 'option') ):
+                                        while( have_rows('g_wedding', 'option') ): the_row();
+
+                                            // Khmer
+                                            $parent_a = get_sub_field('wedding_parents_a');
+                                            $parent_b = get_sub_field('wedding_parents_b');
+                                            $w_invite_label = get_sub_field('wedding_invite_label');
+                                            $w_description = get_sub_field('wedding_description');
+
+                                            // English
+                                            $parent_c = get_sub_field('wedding_parents_a_en');
+                                            $parent_d = get_sub_field('wedding_parents_b_en');
+                                            $w_invite_label_en = get_sub_field('wedding_invite_label_en');
+                                            $w_description_en = get_sub_field('wedding_description_en');
+
+
+                                            // Groom and Bride
+                                            $g_bride = get_sub_field('g_wedding_bride');
+                                            $g_groom = get_sub_field('g_wedding_groom');
+                                            $bride_and_groom_logo = get_sub_field('wedding_bride_and_groom_logo', 'option');
+
+                                            // Date
+                                            $w_location = get_sub_field('wedding_location');
+                                            $date = get_sub_field('wedding_date');
+                                            $day = date('dS', strtotime($date));
+                                            $month = date('F', strtotime($date));
+                                            $year = date('Y', strtotime($date));
+                                            $hour = date('h:i A', strtotime($date));
+                                        endwhile;
+                                    endif;
                                 ?>
-                                <h2 class="title"><?php echo get_field('wedding_title', 'option'); ?></h2>
+
+                                <h2 class="title"><?php echo $g_wedding['wedding_title']; ?></h2>
                                 <div class="block-parent">
                                     <div class="left">
-                                        <h5 class="name"><?php echo $g_parent_a['fathers_name']; ?></h5>
-                                        <h5 class="name"><?php echo $g_parent_a['mother_name']; ?></h5>
+                                        <h5 class="name"><?php echo $parent_a['fathers_name']; ?></h5>
+                                        <h5 class="name"><?php echo $parent_a['mother_name']; ?></h5>
                                     </div>
                                     <div class="right">
-                                        <h5 class="name"><?php echo $g_parent_b['fathers_name']; ?></h5>
-                                        <h5 class="name"><?php echo $g_parent_b['mother_name']; ?></h5>
+                                        <h5 class="name"><?php echo $parent_b['fathers_name']; ?></h5>
+                                        <h5 class="name"><?php echo $parent_b['mother_name']; ?></h5>
                                     </div>
                                 </div>
                                 <div class="block-1">
-                                    <h3><?php echo get_field('wedding_invite_label', 'option'); ?></h3>
-                                    <p><?php echo get_field('wedding_description', 'option'); ?></p>
+                                    <h3><?php echo $w_invite_label; ?></h3>
+                                    <p><?php echo $w_description; ?></p>
                                 </div>
                                 <div class="block-2">
                                     <div class="top">
-                                        <img src="https://placehold.co/120x200" alt="">
-                                        <img src="https://placehold.co/120x200" alt="">
+                                        <img src="<?php echo $g_groom['photo']; ?>" alt="">
+                                        <img src="<?php echo $g_bride['photo']; ?>" alt="">
                                     </div>
                                     <div class="bottom">
                                         <div class="left">
@@ -135,33 +161,21 @@
                                     </div>
                                 </div>
 
-                                <?php
-                                    $lang = 'en';
-                                    $q_config['language'] = $lang;
-                                    $g_parent_a = get_field('wedding_parents_a', 'option');
-                                    $g_parent_b = get_field('wedding_parents_b', 'option');
-                                    $g_bride = get_field('g_wedding_bride', 'option');
-                                    $g_groom = get_field('g_wedding_groom', 'option');
-                                ?>
                                 <div class="block-3">
-                                    <h2 class="title"><?php echo qtranxf_use($lang, get_field('wedding_title', 'option'), TRANSLATE_SHOW_AVALABLE, TRANSLATE_SHOW_EMPTY); ?></h2>
+                                    <h2 class="title"><?php echo $g_wedding['wedding_title_en']; ?></h2>
                                     <div class="block-parent">
                                         <div class="left">
-                                            <h5 class="name">MR. SOK SYHEATH</h5>
-                                            <h5 class="name">MRS. DAN DARY</h5>
+                                            <h5 class="name"><?php echo $parent_c['fathers_name']; ?></h5>
+                                            <h5 class="name"><?php echo $parent_c['mother_name']; ?></h5>
                                         </div>
                                         <div class="right">
-                                            <h5 class="name">H.E. HORT SEYHA</h5>
-                                            <h5 class="name">L.C.T. TAING BUNNA</h5>
+                                            <h5 class="name"><?php echo $parent_d['fathers_name']; ?></h5>
+                                            <h5 class="name"><?php echo $parent_d['mother_name']; ?></h5>
                                         </div>
                                     </div>
-                                    <p class="description">
-                                        CORDIALLY REQUEST THE HONOR OF YOUR PRESENCE
-                                        ON THE AUSPICIOUS OCCASION OF 
-                                        THE WEDDING RECEPTION OF OUR CHILDREN
-                                    </p>
+                                    <p class="description"><?php echo $w_description_en; ?></p>
                                     <div class="spouse-name-eng">
-                                        <img src="<?php echo $local_img . 'spouse-name-eng.png' ?>" alt="">
+                                        <img src="<?php echo $bride_and_groom_logo; ?>">
                                     </div>
                                     <div class="event-date">
                                         <div class="label mb-2">
@@ -169,25 +183,20 @@
                                             <p>DATE</p> 
                                         </div>
                                         <div class="date mb-2">
-                                            <p>JANUARY</p> 
+                                            <p><?php echo $month; ?></p> 
                                             <div class="ellipse"></div> 
-                                            <p>25th</p>
+                                            <p><?php echo $day; ?></p>
                                             <div class="ellipse"></div> 
-                                            <p>2024</p>
+                                            <p><?php echo $year; ?></p>
                                         </div>
-                                        <p class="time mb-2">05:00 PM.</p>
+                                        <p class="time mb-2"><?php echo $hour; ?></p>
                                     </div>
                                     <div class="event-location">
                                         <div class="label mb-2">
                                             <div class="ellipse"></div> 
                                             <p>LOCATION</p> 
                                         </div>
-                                        <p class="description">
-                                            at Chroy Changva International 
-                                            Convention and Exhibition 
-                                            Center ( OCIC Building A)
-                                        </p>
-                                        <p class="follow">Reception to follow</p>
+                                        <div class="description"><?php echo $w_location; ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -199,14 +208,10 @@
                 <section id="event" class="event second-load">
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="title">សិរីមង្គលអាពាហ៍ពិពាហ៍</h2>
-                            <div class="description">
-                                <?php echo get_field('event_description', 'option') ?>
-                            </div>
-                            <h2 class="title-en">WEDDING PROGRAM</h2>
-                            <div class="description">
-                                <?php echo get_field('event_description_en', 'option') ?>
-                            </div>
+                            <h2 class="title"><?php echo $w_program['program_title']; ?></h2>
+                            <div class="description"><?php echo $w_program['program_description']; ?></div>
+                            <h2 class="title-en"><?php echo $w_program['program_title_en']; ?></h2>
+                            <div class="description"><?php echo $w_program['program_description_en']; ?></div>
                         </div>
                     </div>
                 </section>
@@ -216,13 +221,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="block">
-                                <h2 class="title">ទីតាំងអាពាហ៍ពិពាហ៍</h2>
-                                <img src="<?php echo $local_img . 'map.png' ?>" alt="">
-                                <a href="" target="_blank" class="location-map">Google Map</a>
-                                <div class="description">
-                                ថ្ងៃព្រហស្បតិ៍ ទី២៥ ខែមករា ឆ្នាំ២០២៤ វេលាម៉ោង ០៥:០០ល្ងាច នៅ មជ្ឈមណ្ឌលសន្និបាត និងពិព័រណ៍អន្តរជាតិជ្រោយចង្វារ
-                                ( OCIC អគារ A )
-                                </div>
+                                <h2 class="title"><?php echo get_field('map_title', 'option'); ?></h2>
+                                <img src="<?php echo get_field('map_photo', 'option'); ?>">
+                                <a href="<?php echo get_field('map_google', 'option'); ?>" target="_blank" class="location-map">Google Map</a>
+                                <div class="description"><?php echo get_field('map_description', 'option'); ?></div>
                             </div>
                         </div>
                     </div>
@@ -268,19 +270,18 @@
                             </div>
 
                             <div class="gift">
-                                <h1 class="title">កាដូរអាពាហ៍ពិពាហ៍</h1>
-                                <div class="description">
-                                ប្រសិនបើអ្នកមានបំណងចង់ផ្ញើពរជ័យរបស់អ្នកសម្រាប់អាពាហ៍ពិពាហ៍របស់យើង អ្នកអាចផ្ញើតាមរយៈការផ្ទេរប្រាក់​តាមធនាគារទៅកាន់គណនីខាងក្រោម៖
-                                </div>
+                                <h1 class="title"><?php echo get_field('gift_title', 'option'); ?></h1>
+                                <div class="description"><?php echo get_field('gift_description', 'option'); ?></div>
                                 <div class="qr">
                                     <button class="btn-collapse">Request for ABA</button>
                                     <div class="content-qr">
                                         <div class="block-qr">
-                                            <div class="d-none copyme">123456789</div>
-                                            <p>ABA BANK</p>
-                                            <p class="number">OOO XXX XXX <button class="btn-copy"><img src="<?php echo $local_img . 'copy.png' ?>" alt=""></button></p>
-                                            <p>NGOUN SOKPISAL & TANG LIKEANG</p>
-                                            <img class="qr-img" src="https://placehold.co/140" alt="">
+                                            <?php $bank = get_field('g_bank', 'option'); ?>
+                                            <div class="d-none copyme"><?php echo $bank['card_number']; ?></div>
+                                            <p><?php echo $bank['bank_name']; ?></p>
+                                            <p class="number"><?php echo $bank['card_number']; ?> <button class="btn-copy"><img src="<?php echo $local_img . 'copy.png' ?>" alt=""></button></p>
+                                            <p><?php echo $bank['card_name']; ?></p>
+                                            <img class="qr-img" width="140px" src="<?php echo $bank['qr_code']; ?>" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -293,25 +294,28 @@
                 <section id="gallery" class="gallery second-load">
                     <div class="row">
                         <div class="col-12">
-                            <h1 class="title">រូបភាពអាពាហ៍ពិពាហ៍</h1>
+                            <h1 class="title"><?php echo get_field('gallery_title', 'option'); ?></h1>
                             <div class="block-gallery">
-                                <figure>
-                                    <img src="https://placehold.co/1000" alt="">
-                                </figure>
-                                <figure>
-                                    <img src="https://placehold.co/300" alt="">
-                                </figure>
+                                <?php 
+                                    $gallery = get_field('gallery', 'option');
+                                    foreach($gallery as $photo) {
+                                        echo '
+                                        <figure>
+                                            <img src="'.$photo.'">
+                                        </figure>';
+                                    }
+                                ?>
                             </div>
                             <h3 class="title mt-5 mb-5">សូមអរគុណ</h3>
                             <div class="spouse-img mb-4">
-                                <img src="<?php echo $local_img . 'spouse-name-footer.png' ?>" alt="">
+                                <img src="<?php echo get_field('logo_footer', 'option'); ?>">
                             </div>
                             <div class="date mb-5">
-                                25 . 01 . 2023
+                                <?php echo date('d', strtotime($date)) .' . '. date('m', strtotime($date)) . ' . '. date('Y', strtotime($date)); ?>
                             </div>
                             <div class="created-by">
                                 <p>Created by</p>
-                                <img src="<?php echo $local_img . 'biz-logo.png' ?>" alt="">
+                                <img src="<?php echo $local_img . 'biz-logo.png' ?>">
                             </div>
                         </div>
                     </div>

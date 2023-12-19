@@ -35,7 +35,6 @@ function load_admin_styles() {
     wp_enqueue_style( 'admin_css', $dir . '/assets/css/backend.css', false, '1.0.0' );
 }
 
-
 // @Date Format
 function dateFormat($field, $format) {
     $date        = get_field($field);
