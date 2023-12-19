@@ -10,8 +10,12 @@ $('document').ready(function() {
 
         $('.loading-screen').fadeOut(parseInt(loadingScreen));
         $('.block-item').fadeOut(350);
+        $('.second-load').fadeIn(parseInt(loadingScreen));
 
-        $('.second-load').fadeIn(1000);
+        setTimeout(function(){
+            $('.component-menu').addClass('show')
+        }, parseInt(loadingScreen) + 1000);
+        
     });
 
 
@@ -27,11 +31,34 @@ $('document').ready(function() {
         $('.content-qr').slideToggle(700);
     })
 
-    $('.menu a').click(function(){
+    //Active Menu
+    $('.menu a').click(function() {
         $('.menu a').removeClass('border-top');
         $(this).addClass('border-top');
+        
+        $('.menu a').removeClass('current');
+        $(this).addClass('current');
     });
 
+
+	// //disable right click
+	document.addEventListener('contextmenu', (e) => e.preventDefault());
+	function ctrlShiftKey(e, keyCode) {
+	return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+	}
+
+    // Disable inspect
+	document.onkeydown = (e) => {
+	// Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+	if (
+		event.keyCode === 123 ||
+		ctrlShiftKey(e, 'I') ||
+		ctrlShiftKey(e, 'J') ||
+		ctrlShiftKey(e, 'C') ||
+		(e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+	)
+		return false;
+	};
 
     /**
      * Easy selector helper function

@@ -48,6 +48,7 @@ body
     font-family: 'Kh Huysavy';
 }
 
+.invitation .home .top .title,
 .invitation .map .location-map,
 .component-menu .menu label ,
 .invitation .gallery .created-by,
@@ -61,6 +62,7 @@ body
     font-family: 'AKbalthom Kouprey';
 }
 
+.invitation .wish figure .duration,
 .invitation .home .block-3 .event-location,
 .invitation .home .block-3 .event-date {
     font-family: 'Edensor';
@@ -68,14 +70,12 @@ body
 
 .invitation .wish figure .name,
 .invitation .wish figure .message,
-.invitation .event .title-en,
-.invitation .home .block-3 .title {
+.invitation .event .title-en {
     font-family: 'Cormorant Medium';
 }
 
 .invitation .wish .gift .qr .block-qr,
 .invitation .wish .gift .qr .btn-collapse,
-.invitation .wish figure .duration,
 .invitation .home .block-3 .description,
 .invitation .home .block-3 .block-parent .name {
     font-family: 'Cormorant Regular';
@@ -99,6 +99,9 @@ body
     --bg-blue-1 : #537A9C;
     --grey: #A3A1A3;
     --bg-grey: #E5E9F1;
+
+    --bg-blue-transparent: #7d92b957;
+    --bg-white-transparent: #f9fcffad;
 }
 
 html {
@@ -115,6 +118,10 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+}
+.component-menu.show {
+    opacity: 1;
 }
 
 .nav-menu {
@@ -149,6 +156,25 @@ nav .menu {
 .component-menu .menu a.border-top {
     border-radius: 3px;
     border-top: 3.5px solid var(--blue) !important;
+}
+
+.component-menu .menu a.border-top label {
+    color: var(--blue);
+}
+nav .menu .icon {
+    display: flex;
+    position: relative;
+}
+.component-menu .menu a .active {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+.component-menu .menu a.current .active {
+    opacity: 1;
+}
+.component-menu .menu a.current .default {
+    opacity: 0;
 }
 
 /* Main Background */
@@ -453,6 +479,7 @@ nav .menu {
     margin-bottom: 40px;
 }
 .invitation .map img {
+    width: 100%;
     margin-bottom: 40px;
 }
 .invitation .map .location-map {
@@ -616,11 +643,32 @@ nav .menu {
     margin-bottom: 100px;
 }
 
-/* mobile */
+/* mobile */    
 @media (max-width: 576px) {
+
+    .container {
+        /* padding: 15px 0px !important; */
+    }
+
+    .invitation .gallery,
+    .invitation .wish,
+    .invitation .map,
+    .invitation .welcome {
+        background-color: var(--bg-blue-transparent);
+    }
+    .invitation .event,
+    .invitation .home {
+        background-color: var(--bg-white-transparent);
+    }
+
+    .second-load {
+        z-index: 999;
+        position: relative;
+    }
     .flower-left img,
     .flower-right img {
         width: 300px;
+        z-index: 1;
     }
     .invitation .splash-screen .block-item {
         gap: 2rem;
@@ -669,5 +717,8 @@ nav .menu {
     }
     .invitation .gallery {
         padding: 30px 15px;
+    }
+    .invitation .map .block {
+        padding: 40px 15px;
     }
 }

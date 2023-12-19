@@ -32,15 +32,11 @@
                     <div>
                         <img src="<?php echo $local_img . 'spouse-animation.gif'; ?>">
                     </div>
-                    <!-- <div class="row">
-                        <div class="col-12">
-                        </div>
-                    </div> -->
                 </section>
             </div>
 
-            <!-- SplashScreen -->
             <div class="container">
+                <!-- SplashScreen -->
                 <section class="splash-screen" style="background-image: url(<?php echo $local_img . 'ticket.webp'; ?>)">
                     <div class="row">
                         <div class="col-12">
@@ -207,12 +203,25 @@
                 <!-- Event -->
                 <section id="event" class="event second-load">
                     <div class="row">
+<<<<<<< HEAD
                         <div class="col-12">
                             <h2 class="title"><?php echo $w_program['program_title']; ?></h2>
                             <div class="description"><?php echo $w_program['program_description']; ?></div>
                             <h2 class="title-en"><?php echo $w_program['program_title_en']; ?></h2>
                             <div class="description"><?php echo $w_program['program_description_en']; ?></div>
                         </div>
+=======
+                        <!-- <div class="col-12"> -->
+                            <h2 class="title">សិរីមង្គលអាពាហ៍ពិពាហ៍</h2>
+                            <div class="description">
+                                <?php echo get_field('event_description', 'option') ?>
+                            </div>
+                            <h2 class="title-en">WEDDING PROGRAM</h2>
+                            <div class="description">
+                                <?php echo get_field('event_description_en', 'option') ?>
+                            </div>
+                        <!-- </div> -->
+>>>>>>> 4efa1e4e4ebac1dd6686f4b05162a3810a286859
                     </div>
                 </section>
 
@@ -236,37 +245,18 @@
                         <div class="col-12">
                             <h1 class="title">សារជូនពរ</h1>
                             <form action="" method="post">
+                                <?php wp_nonce_field('wishing_action'); ?>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">ពីខ្ញុំ</span>
                                     <input type="text" class="form-control text-box" placeholder="ឈ្មោះ" name="username">
                                 </div>
                                 <div class="block">
-                                    <textarea name="" id="" cols="20" rows="5" class="form-control" placeholder="សរសេរសារជូនពររបស់អ្នកទៅកាន់កូនក្រមុំនិងកូនកំលោះ"></textarea>
+                                    <textarea name="message" id="" cols="20" rows="5" class="form-control" placeholder="សរសេរសារជូនពររបស់អ្នកទៅកាន់កូនក្រមុំនិងកូនកំលោះ"></textarea>
                                     <input type="submit" class="button" name="btn-wish" value="ផ្ញើរ">
                                 </div>
                             </form>
                             <div class="wishing-list">
-                                <figure>
-                                    <div class="name">Vanda</div>
-                                    <div class="duration">1h ago</div>
-                                    <div class="message">
-                                        Dear Pisal & Likeang... congratulations on your wedding! Lots of love today and beyond....❤
-                                    </div>
-                                </figure>
-                                <figure>
-                                    <div class="name">G Devit</div>
-                                    <div class="duration">1h ago</div>
-                                    <div class="message">
-                                        Dear Pisal & Likeang... congratulations on your wedding! Lots of love today and beyond....❤
-                                    </div>
-                                </figure>
-                                <figure>
-                                    <div class="name">Preab Sovath</div>
-                                    <div class="duration">1h ago</div>
-                                    <div class="message">
-                                        Dear Pisal & Likeang... congratulations on your wedding! Lots of love today and beyond....❤
-                                    </div>
-                                </figure>
+                                <?php echo get_wish_list(); ?>
                             </div>
 
                             <div class="gift">
@@ -329,10 +319,11 @@
                             <nav id="navbar">
                                 <ul class="menu">
                                     <li>
-                                        <a class="scroll-to" href="#home">
+                                        <a class="scroll-to border-top current" href="#home">
                                             <div class="border"></div>
                                             <div class="icon">
-                                                <img src="<?php echo $local_icon . 'home.png' ?>" alt="">
+                                                <img class="default" src="<?php echo $local_icon . 'home.png' ?>" alt="">
+                                                <img class="active" src="<?php echo $local_icon . 'home-1.png' ?>" alt="">
                                             </div>
                                             <label for="">Home</label>
                                         </a>
@@ -341,7 +332,8 @@
                                         <a class="scroll-to" href="#event">
                                             <div class="border"></div>
                                             <div class="icon">
-                                                <img src="<?php echo $local_icon . 'clipboard.png' ?>" alt="">
+                                                <img class="default" src="<?php echo $local_icon . 'clipboard-text.png' ?>" alt="">
+                                                <img class="active" src="<?php echo $local_icon . 'clipboard-text-1.png' ?>" alt="">
                                             </div>
                                             <label for="">Event</label>
                                         </a>
@@ -350,7 +342,8 @@
                                         <a class="scroll-to" href="#map">
                                             <div class="border"></div>
                                             <div class="icon">
-                                                <img src="<?php echo $local_icon . 'location.png' ?>" alt="">
+                                                <img class="default" src="<?php echo $local_icon . 'location.png' ?>" alt="">
+                                                <img class="active" src="<?php echo $local_icon . 'location-1.png' ?>" alt="">
                                             </div>
                                             <label for="">Map</label>
                                         </a>
@@ -359,7 +352,8 @@
                                         <a class="scroll-to" href="#wish">
                                             <div class="border"></div>
                                             <div class="icon">
-                                                <img src="<?php echo $local_icon . 'message.png' ?>" alt="">
+                                                <img class="default" src="<?php echo $local_icon . 'message-text.png' ?>" alt="">
+                                                <img class="active" src="<?php echo $local_icon . 'message-text-1.png' ?>" alt="">
                                             </div>
                                             <label for="">Wish</label>
                                         </a>
@@ -368,7 +362,8 @@
                                         <a class="scroll-to" href="#gallery">
                                             <div class="border"></div>
                                             <div class="icon">
-                                                <img src="<?php echo $local_icon . 'gallery.png' ?>" alt="">
+                                                <img class="default" src="<?php echo $local_icon . 'gallery.png' ?>" alt="">
+                                                <img class="active" src="<?php echo $local_icon . 'gallery-1.png' ?>" alt="">
                                             </div>
                                             <label for="">Gallery</label>
                                         </a>
