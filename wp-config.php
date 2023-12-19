@@ -21,7 +21,8 @@ switch( $domain_name )
 $DB_NAME	=	[
 	"production"	=>	"",
 	"staging"		=>	"",
-	"development"	=>	"online_invitation",
+	"development"	=>	"wedding",
+	// "development"	=>	"online_invitation",
 ];
 
 $DB_USER	=	[
@@ -33,7 +34,7 @@ $DB_USER	=	[
 $DB_PASSWORD	=	[
 	"production"	=>	"",
 	"staging"		=>	"",
-	"development"	=>	"",
+	"development"	=>	"w36@b12!",
 ];
 
 $DB_HOST	=	[
@@ -45,7 +46,8 @@ $DB_HOST	=	[
 $DOMAIN_CURRENT_SITE  =  [
 	"production"   =>  "https://online-invitation.com",
 	"staging"      =>  "http://staging.online-invitation.com",
-	"development"  =>  "http://192.168.90.144/pisal-wedding",
+	"development"  =>  "http://dev.wedding.local",
+	// "development"  =>  "http://192.168.90.144/pisal-wedding",
 ];
 
 
@@ -123,7 +125,8 @@ define ('WP_CONTENT_FOLDERNAME', 'c');
 define ('WP_CONTENT_DIR', ABSPATH . WP_CONTENT_FOLDERNAME);
  
 //Define new directory URL
-define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/pisal-wedding/');
+define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/');
+// define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/pisal-wedding/');
 define('WP_CONTENT_URL', WP_SITEURL . WP_CONTENT_FOLDERNAME);
 
 /** Absolute path to the WordPress directory. */

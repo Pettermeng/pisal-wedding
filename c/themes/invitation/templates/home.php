@@ -5,6 +5,7 @@
  */   
 
     get_header();
+    global $q_config;
     $local_img  = get_template_directory_uri() . '/assets/images/';
     $local_icon  = get_template_directory_uri() . '/assets/icons/';
 ?>
@@ -14,14 +15,14 @@
 
 <body>
     <main class="invitation">
-        <div class="main-background" style="background-image: url(<?php echo $local_img . 'main-bg.webp' ?>);">
+        <div class="main-background" style="background-image: url(<?php echo $local_img . 'main-bg.webp'; ?>);">
 
             <!-- Flower Animations -->
             <div class="flower-left">
-                <img src="<?php echo $local_img . 'flower-animation-left.png' ?>" alt="">
+                <img src="<?php echo $local_img . 'flower-animation-left.png'; ?>">
             </div>
             <div class="flower-right">
-                <img src="<?php echo $local_img . 'flower-animation-right.png' ?>" alt="">
+                <img src="<?php echo $local_img . 'flower-animation-right.png'; ?>">
             </div>
 
             <!-- Loading screen -->
@@ -29,7 +30,7 @@
                 <section class="loading-screen">
                     <div class="lodingDuration d-none">3700</div>
                     <div>
-                        <img src="<?php echo $local_img . 'spouse-animation.gif' ?>" alt="">
+                        <img src="<?php echo $local_img . 'spouse-animation.gif'; ?>">
                     </div>
                     <!-- <div class="row">
                         <div class="col-12">
@@ -38,28 +39,28 @@
                 </section>
             </div>
 
+            <!-- SplashScreen -->
             <div class="container">
-
-                <!-- SplashScreen -->
-                <section class="splash-screen" style="background-image: url(<?php echo $local_img . 'ticket.webp' ?>);">
+                <section class="splash-screen" style="background-image: url(<?php echo $local_img . 'ticket.webp'; ?>)">
                     <div class="row">
                         <div class="col-12">
                             <div class="block-item">
                                 <div class="top">
-                                    <h2 class="title" mb-0>សិរីមង្គលអាពាហ៏ពិពាហ៏</h2>
+                                    <h2 class="title" mb-0><?php echo get_field('splash_screen_title', 'option'); ?></h2>
                                 </div>
                                 <div class="center">
-                                    <img src="<?php echo $local_img . 'spouse-name.webp' ?>" alt="">
+                                    <img src="<?php echo get_field('splash_screen_logo', 'option'); ?>">
                                 </div>
                                 <div class="center-1">
                                     <button class="open-invite" style="background-image: url(<?php echo $local_img . 'open-ticket.png' ?>);">
-                                        បើកសំបុត្រ
+                                        <?php echo get_field('splash_screen_ticket_label', 'option'); ?>
                                     </button>
                                 </div>
                                 <div class="bottom">
-                                    <p>ថ្ងៃព្រហស្បតិ៍ ទី២៥ ខែមករា ឆ្នាំ២០២៤</p>
+                                    <?php echo get_field('splash_screen_description', 'option'); ?>
+                                    <!-- <p>ថ្ងៃព្រហស្បតិ៍ ទី២៥ ខែមករា ឆ្នាំ២០២៤</p>
                                     <p>វេលាម៉ោង ០៥:០០ល្ងាច</p>
-                                    <p>នៅ មជ្ឈមណ្ឌលសន្និបាត និងពិព័រណ៍អន្តរជាតិជ្រោយចង្វារ ( OCIC អគារ A )</p>
+                                    <p>នៅ មជ្ឈមណ្ឌលសន្និបាត និងពិព័រណ៍អន្តរជាតិជ្រោយចង្វារ ( OCIC អគារ A )</p> -->
                                 </div>
                             </div>
                         </div>
@@ -71,25 +72,18 @@
                 <section id="welcome" class="welcome second-load">
                     <div class="row">
                         <div class="top">
-                            <div class="bg" style="background-image: url(<?php echo $local_img . 'spouse-name.webp' ?>);"></div>
+                            <div class="bg" style="background-image: url(<?php echo get_field('splash_screen_logo', 'option'); ?>)"></div>
                         </div>
                         <div class="center">
-                            <h2 class="title">សេចក្តីថ្លែងអំណរគុណ</h2>
-                            <p>
-                            ខ្ញុំបាទ នាងខ្ញុំ ជាមាតាបិតា កូនប្រុស កូនស្រី សូមគោរពថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅចំពោះវត្តមានដ៏ឧត្តុង្គឧត្តម របស់ សម្តេច ឯកឧត្តម លោកជំទាវ អ្នកឧកញ៉ា ឧកញ៉ា លោក លោកស្រី អ្នកនាង កញ្ញា ក្នុងពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍ កូនប្រុស កូនស្រីរបស់យើងខ្ញុំ សូមមេត្តាទទួលនូវសេចក្តីគោរពដ៌ខ្ពង់ខ្ពស់ពីយើងខ្ញុំ។
-                            </p>
+                            <h2 class="title"><?php echo get_field('thanks_title', 'option'); ?></h2>
+                            <p><?php echo get_field('thanks_description', 'option'); ?></p>
                         </div>
                         <div class="center-1">
                             <img src="<?php echo $local_img . 'border-line.png' ?>" alt="">
                         </div>
                         <div class="bottom">
-                            <h2 class="title">សេចក្តីសូមអភ័យទោស</h2>
-                            <p>
-                            ខ្ញុំបាទ នាងខ្ញុំ ជាមាតាបិតា កូនប្រុស កូនស្រី
-                            សូមមេត្តាខន្តី អភ័យទោស ពីសំណាក់ 
-                            សម្តេច ឯកឧត្តម លោកជំទាវ អ្នកឧកញ៉ា ​ឧកញ៉ា 
-                            លោក លោកស្រី អ្នកនាង កញ្ញា និងភ្ញៀវកិត្តិយសទាំងអស់ ដោយយើងខ្ញុំពុំបានជូនលិខិតអញ្ជើញដោយផ្ទាល់ដៃ ឬចំពោះកំហុសអក្ខរាវិរុទ្ធ  ក្នុងការសរសេរឈ្មោះ។ សូមមេត្តាយោគយល់ និងសូមគោរពអរគុណទុកជាមុន។
-                            </p>
+                            <h2 class="title"><?php echo get_field('sorry_title', 'option'); ?></h2>
+                            <p><?php echo get_field('sorry_description', 'option'); ?></p>
                         </div>
                     </div>
                 </section>
@@ -99,22 +93,27 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="top">
-                                <h2 class="title">សិរីមង្គលអាពាហ៍ពិពាហ៍</h2>
+                                <?php
+                                    $q_config['language'] = 'km';
+                                    $g_parent_a = get_field('wedding_parents_a', 'option');
+                                    $g_parent_b = get_field('wedding_parents_b', 'option');
+                                    $g_bride = get_field('g_wedding_bride', 'option');
+                                    $g_groom = get_field('g_wedding_groom', 'option');
+                                ?>
+                                <h2 class="title"><?php echo get_field('wedding_title', 'option'); ?></h2>
                                 <div class="block-parent">
                                     <div class="left">
-                                        <h5 class="name">លោក សុខ សុីហៀត</h5>
-                                        <h5 class="name">លោកស្រី ដាន ដារី</h5>
+                                        <h5 class="name"><?php echo $g_parent_a['fathers_name']; ?></h5>
+                                        <h5 class="name"><?php echo $g_parent_a['mother_name']; ?></h5>
                                     </div>
                                     <div class="right">
-                                        <h5 class="name">ឯកឧត្តម ហ៊ត សីហា</h5>
-                                        <h5 class="name">លោកជំទាវ តាំង ប៊ុនណា</h5>
+                                        <h5 class="name"><?php echo $g_parent_b['fathers_name']; ?></h5>
+                                        <h5 class="name"><?php echo $g_parent_b['mother_name']; ?></h5>
                                     </div>
                                 </div>
                                 <div class="block-1">
-                                    <h3>មានកិត្តិយសសូមគោរពអញ្ជើញ</h3>
-                                    <p>
-                                    សម្តេច ឯកឧត្តម លោកជំទាវ ​អ្នកឧកញ៉ា ​ឧកញ៉ា លោក លោក​ស្រី អ្នកនាង កញ្ញា អញ្ជើញចូលរួមជាអធិបតី និងជាភ្ញៀវកិតិ្តយស ចម្រើនជោគជ័យ សិរីសួស្ដី ក្នុង ពិធីរៀបអាពាហ៍ពិពាហ៍ កូនប្រុស-កូនស្រី របស់យើងខ្ញុំ
-                                    </p>
+                                    <h3><?php echo get_field('wedding_invite_label', 'option'); ?></h3>
+                                    <p><?php echo get_field('wedding_description', 'option'); ?></p>
                                 </div>
                                 <div class="block-2">
                                     <div class="top">
@@ -124,19 +123,28 @@
                                     <div class="bottom">
                                         <div class="left">
                                             <p>កូនប្រុសនាម</p>
-                                            <span>ងួន សុខពិសាល</span>
+                                            <span><?php echo $g_groom['name']; ?></span>
                                         </div>
                                         <div class="center">
                                             <p>ជាគូនឹង</p>
                                         </div>
                                         <div class="right">
                                             <p>កូនស្រីនាម</p>
-                                            <span>តាំង លីគាង</span>
+                                            <span><?php echo $g_bride['name']; ?></span>
                                         </div>
                                     </div>
                                 </div>
+
+                                <?php
+                                    $lang = 'en';
+                                    $q_config['language'] = $lang;
+                                    $g_parent_a = get_field('wedding_parents_a', 'option');
+                                    $g_parent_b = get_field('wedding_parents_b', 'option');
+                                    $g_bride = get_field('g_wedding_bride', 'option');
+                                    $g_groom = get_field('g_wedding_groom', 'option');
+                                ?>
                                 <div class="block-3">
-                                    <h2 class="title">THE WEDDING</h2>
+                                    <h2 class="title"><?php echo qtranxf_use($lang, get_field('wedding_title', 'option'), TRANSLATE_SHOW_AVALABLE, TRANSLATE_SHOW_EMPTY); ?></h2>
                                     <div class="block-parent">
                                         <div class="left">
                                             <h5 class="name">MR. SOK SYHEATH</h5>
@@ -316,7 +324,6 @@
                         <div class="col-12">
                             <nav id="navbar">
                                 <ul class="menu">
-
                                     <li>
                                         <a class="scroll-to" href="#home">
                                             <div class="border"></div>

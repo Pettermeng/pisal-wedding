@@ -622,6 +622,14 @@ nav .menu {
     .flower-right img {
         width: 300px;
     }
+    .invitation .splash-screen .block-item {
+        gap: 2rem;
+    }
+    .invitation .splash-screen .top .title {
+        padding-top: 30px;
+        text-align: center;
+        line-height: 4.5rem;
+    }
     .invitation .splash-screen .center-1 button {
         z-index: 1000;
         position: relative;
