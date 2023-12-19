@@ -28,6 +28,16 @@ function all_option_page()
         'redirect'		=> false
     ));
 
+    acf_add_options_page(array(
+        'page_title' 	=> 'SEO', 
+        'menu_title'	=> 'SEO', 
+        'menu_slug' 	=> 'conseotent', 
+        'capability'	=> 'edit_posts',
+        'icon_url'      => 'dashicons', 
+        'position'      => 81,
+        'redirect'		=> false
+    ));
+
 }
 add_action( 'init', 'all_option_page' );
 
